@@ -45,23 +45,6 @@ public class ThanhVien {
     @PrimaryKeyJoinColumn
     private BanToChuc banToChuc;
 
-    @Override
-    public String toString() {
-        return "ThanhVien{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", ngaySinh=" + ngaySinh +
-                ", email='" + email + '\'' +
-                ", sdt='" + sdt + '\'' +
-                ", ghiChu='" + ghiChu + '\'' +
-                ", hoTen='" + hoTen + '\'' +
-                ", diaChi='" + diaChi + '\'' +
-                ", tayDua=" + tayDua +
-                ", banToChuc=" + banToChuc +
-                '}';
-    }
-
     public Integer getId() {
         return id;
     }
@@ -148,5 +131,22 @@ public class ThanhVien {
 
     public void setBanToChuc(BanToChuc banToChuc) {
         this.banToChuc = banToChuc;
+    }
+
+    @Override
+    public String toString() {
+        return "ThanhVien{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", ngaySinh=" + ngaySinh +
+                ", email='" + email + '\'' +
+                ", sdt='" + sdt + '\'' +
+                ", ghiChu='" + ghiChu + '\'' +
+                ", hoTen='" + hoTen + '\'' +
+                ", diaChi='" + diaChi + '\'' +
+                ", tayDua=" + tayDua +
+                ", banToChuc=" + banToChuc +
+                '}';
     }
 }

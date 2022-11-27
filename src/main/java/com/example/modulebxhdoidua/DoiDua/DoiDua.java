@@ -79,4 +79,16 @@ public class DoiDua {
     public void setListDoiDuaTayDua(List<DoiDuaTayDua> listDoiDuaTayDua) {
         this.listDoiDuaTayDua = listDoiDuaTayDua;
     }
+
+    @Override
+    public String toString() {
+        return "DoiDua{" +
+                "id=" + id +
+                ", ten='" + ten + '\'' +
+                ", hang='" + hang + '\'' +
+                ", moTa='" + moTa + '\'' +
+                ", giaiDau=" + giaiDau +
+                ", listDoiDuaTayDua=" + listDoiDuaTayDua +
+                '}';
+    }
 }

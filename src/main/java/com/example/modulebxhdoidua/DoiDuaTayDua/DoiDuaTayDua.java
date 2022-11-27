@@ -28,4 +28,55 @@ public class DoiDuaTayDua {
 
     @OneToMany(mappedBy = "doiDuaTayDua", fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     List<KetQua> listKetQua;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Date getThoiDiem() {
+        return thoiDiem;
+    }
+
+    public void setThoiDiem(Date thoiDiem) {
+        this.thoiDiem = thoiDiem;
+    }
+
+    public TayDua getTayDua() {
+        return tayDua;
+    }
+
+    public void setTayDua(TayDua tayDua) {
+        this.tayDua = tayDua;
+    }
+
+    public DoiDua getDoiDua() {
+        return doiDua;
+    }
+
+    public void setDoiDua(DoiDua doiDua) {
+        this.doiDua = doiDua;
+    }
+
+    public List<KetQua> getListKetQua() {
+        return listKetQua;
+    }
+
+    public void setListKetQua(List<KetQua> listKetQua) {
+        this.listKetQua = listKetQua;
+    }
+
+    @Override
+    public String toString() {
+        return "DoiDuaTayDua{" +
+                "id=" + id +
+                ", thoiDiem=" + thoiDiem +
+                ", tayDua=" + tayDua +
+                ", doiDua=" + doiDua +
+                ", listKetQua=" + listKetQua +
+                '}';
+    }
 }
