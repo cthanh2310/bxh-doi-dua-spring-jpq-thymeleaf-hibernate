@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xem bảng xếp hạng</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="border border-secondary rounded p-3" style="width: 21%">
+            <div class="h2">Xem bảng xếp hạng</div>
+            <div>
+                <div class="form-group row">
+                    <label class="col-4">
+                        Loại thống kê
+                    </label>
+                    <div class="col-1">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Chọn
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button" id="bxhDoiDua" onclick="xemBXHDoiDua()">Xem bảng xếp hạng đội đua</button>
+<!--                                <button class="dropdown-item" type="button" id="bxhTayDua" onclick="xemBXHTayDua()">Xem bảng xếp hạng tay đua</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4">
+                        Giải đấu
+                    </label>
+                    <div class="col-1">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Chọn
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <button th:each="giaidau: ${listGiaiDau}" class="dropdown-item" th:attr="onclick=|handleGiaiDau('${giaidau.namToChuc}')|" type="button">[[${giaidau.namToChuc}]]</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-danger mb-2 d-none" id="msg-error">
+                    Xin chọn đủ các thông tin trên!
+                </div>
+                <button class="btn btn-primary" onclick="handleXemBXH()">Xem</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    let is_choose = {
+        loaiTK: false,
+        giaiDau: false
+    }
+    function xemBXHDoiDua() {
+        let toggle = document.getElementById("dropdownMenu2");
+        toggle.innerText = "Xem bảng xếp hạng đội đua";
+        is_choose.loaiTK = true;
+    }
+    // function xemBXHTayDua() {
+    //     let toggle = document.getElementById("dropdownMenu2");
+    //     toggle.innerText = "Xem bảng xếp hạng tay đua";
+    // }
+    function handleGiaiDau(namToChuc) {
+        let toggle = document.getElementById("dropdownMenu3");
+        toggle.innerText = namToChuc;
+        is_choose.giaiDau = true;
+    }
+
+    function handleXemBXH() {
+        if(!is_choose.loaiTK || !is_choose.giaiDau) {
+            document.getElementById("msg-error").classList.add("d-block");
+        } else {
+            document.getElementById("msg-error").classList.remove("d-block");
+            let data = {};
+            data.loaiTK = document.getElementById("dropdownMenu2").innerText;
+            data.giaiDau = Number(document.getElementById("dropdownMenu3").innerText);
+            console.log(data)
+            fetch("http://localhost:8080/bang-xep-hang-doi-dua/", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+        }
+    }
+</script>
+</html>
