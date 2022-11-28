@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Xem bảng xếp hạng</title>
@@ -90,6 +90,13 @@
                 },
                 body: JSON.stringify(data)
             })
+                .then(data => {
+                    console.log("data", data);
+                    return window.location.href = "/bang-xep-hang-doi-dua";
+                })
+                .catch(e => {
+                    console.log("e", e);
+                })
         }
     }
 </script>
