@@ -44,9 +44,12 @@ public class DoiDuaController {
         } else {
             Set<DoiDua> listDoiDua = (Set<DoiDua>) session.getAttribute("listDoiDua");
             for(DoiDua doiDua: listDoiDua) {
-//                Optional<List<DoiDuaTayDua>> listDoiDuaTayDua = doiDuaService.getListDoiDuaTayDua(doiDua.getId());
-//                System.out.println("listDoiDuaTayDua" + listDoiDuaTayDua);
-                System.out.println(doiDua);
+                Optional<DoiDua> doiDuaResult = doiDuaService.getById(doiDua.getId());
+                System.out.println("doiDuaResult" + doiDuaResult.get().getListDoiDuaTayDua());
+//                Set<DoiDuaTayDua> listDoiDuaTayDua = doiDuaResult.get().getListDoiDuaTayDua();
+//                for(DoiDuaTayDua doiDuaTayDua: listDoiDuaTayDua) {
+//                    System.out.println(doiDuaTayDua);
+//                }
             }
 
             model.addAttribute("listDoiDua", listDoiDua);

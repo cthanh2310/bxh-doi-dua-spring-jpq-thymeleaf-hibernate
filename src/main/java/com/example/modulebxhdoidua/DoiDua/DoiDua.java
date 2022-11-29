@@ -7,6 +7,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "tbldoidua")
@@ -30,7 +31,7 @@ public class DoiDua {
 
     @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "doiDua", fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
-    List<DoiDuaTayDua> listDoiDuaTayDua;
+    Set<DoiDuaTayDua> listDoiDuaTayDua;
 
     public Integer getId() {
         return id;
@@ -72,11 +73,11 @@ public class DoiDua {
         this.giaiDau = giaiDau;
     }
 
-    public List<DoiDuaTayDua> getListDoiDuaTayDua() {
+    public Set<DoiDuaTayDua> getListDoiDuaTayDua() {
         return listDoiDuaTayDua;
     }
 
-    public void setListDoiDuaTayDua(List<DoiDuaTayDua> listDoiDuaTayDua) {
+    public void setListDoiDuaTayDua(Set<DoiDuaTayDua> listDoiDuaTayDua) {
         this.listDoiDuaTayDua = listDoiDuaTayDua;
     }
 

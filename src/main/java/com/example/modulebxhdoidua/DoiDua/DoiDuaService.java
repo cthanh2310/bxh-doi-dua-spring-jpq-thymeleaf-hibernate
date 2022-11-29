@@ -12,7 +12,7 @@ import java.util.Optional;
 public class DoiDuaService {
     @Autowired DoiDuaRepository doiDuaRepository;
 
-    public Optional<DoiDua> getListDoiDuaTayDua(Integer id) {
+    public Optional<DoiDua> getById(Integer id) {
         return doiDuaRepository.findById(id);
     }
 
