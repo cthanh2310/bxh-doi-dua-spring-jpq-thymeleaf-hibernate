@@ -1,10 +1,14 @@
 package com.example.modulebxhdoidua.DoiDua;
 
+import com.example.modulebxhdoidua.DoiDuaTayDua.DoiDuaTayDua;
 import com.example.modulebxhdoidua.DoiDuaTayDua.DoiDuaTayDuaService;
 import com.example.modulebxhdoidua.GiaiDau.GiaiDau;
 import com.example.modulebxhdoidua.GiaiDau.GiaiDauService;
+import com.example.modulebxhdoidua.KetQua.KetQua;
+import com.example.modulebxhdoidua.KetQua.KetQuaService;
 import com.example.modulebxhdoidua.ThongKe.ThongKeDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +28,8 @@ public class DoiDuaController {
     @Autowired DoiDuaService doiDuaService;
     @Autowired
     DoiDuaTayDuaService doiDuaTayDuaService;
+    @Autowired
+    KetQuaService ketQuaService;
 
     @PostMapping("")
     public String bxhDoiDuaPost(@RequestBody ThongKeDto body, HttpSession session) {
@@ -40,17 +46,10 @@ public class DoiDuaController {
             ra.addFlashAttribute("requireLogin", "Vui lòng đăng nhập để xem bảng xếp hạng!");
             return "redirect:/auth/login";
         } else {
-            Set<DoiDua> listDoiDua = (Set<DoiDua>) session.getAttribute("listDoiDua");
-            for(DoiDua doiDua: listDoiDua) {
-                Optional<DoiDua> doiDuaResult = doiDuaService.getById(doiDua.getId());
-                System.out.println("doiDuaResult" + doiDuaResult.get().getListDoiDuaTayDua());
-//                Set<DoiDuaTayDua> listDoiDuaTayDua = doiDuaResult.get().getListDoiDuaTayDua();
-//                for(DoiDuaTayDua doiDuaTayDua: listDoiDuaTayDua) {
-//                    System.out.println(doiDuaTayDua);
-//                }
-            }
-
-            model.addAttribute("listDoiDua", listDoiDua);
+            Optional<DoiDua> doiDua = doiDuaService.getById(1);
+            System.out.println(doiDua.get().getListDoiDuaTayDua());
+            Long sumDiem = ketQuaService.sumDiem(1);
+            System.out.println("sumDiem" + sumDiem);
             return "bangxephangdoidua";
         }
     }

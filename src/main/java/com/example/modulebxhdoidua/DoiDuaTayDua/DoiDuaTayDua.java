@@ -69,42 +69,12 @@ public class DoiDuaTayDua {
         this.listKetQua = listKetQua;
     }
 
-//    @Override
-//    public String toString() {
-//        return "DoiDuaTayDua{" +
-//                "id=" + id +
-//                ", thoiDiem=" + thoiDiem +
-//                ", tayDua=" + tayDua +
-//                ", doiDua=" + doiDua +
-//                ", listKetQua=" + listKetQua +
-//                '}';
-//    }
-
-//    @Override
-//    public String toString() {
-//        return "DoiDuaTayDua{" +
-//                "id=" + id +
-//                ", thoiDiem=" + thoiDiem +
-//                ", tayDua=" + tayDua +
-//                '}';
-//    }
-
-
     @Override
     public String toString() {
         return "DoiDuaTayDua{" +
                 "id=" + id +
                 ", thoiDiem=" + thoiDiem +
+                ", listKetQua=" + listKetQua +
                 '}';
     }
-
-//    @Override
-//    public String toString() {
-//        return "DoiDuaTayDua{" +
-//                "id=" + id +
-//                ", thoiDiem=" + thoiDiem +
-//                ", tayDua=" + tayDua +
-//                ", doiDua=" + doiDua +
-//                '}';
-//    }
 }

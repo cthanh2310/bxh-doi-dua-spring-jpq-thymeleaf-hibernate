@@ -81,6 +81,17 @@ public class DoiDua {
         this.listDoiDuaTayDua = listDoiDuaTayDua;
     }
 
+//    @Override
+//    public String toString() {
+//        return "DoiDua{" +
+//                "id=" + id +
+//                ", ten='" + ten + '\'' +
+//                ", hang='" + hang + '\'' +
+//                ", moTa='" + moTa + '\'' +
+//                ", giaiDau=" + giaiDau +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "DoiDua{" +
@@ -89,6 +100,7 @@ public class DoiDua {
                 ", hang='" + hang + '\'' +
                 ", moTa='" + moTa + '\'' +
                 ", giaiDau=" + giaiDau +
+                ", listDoiDuaTayDua=" + listDoiDuaTayDua +
                 '}';
     }
 }

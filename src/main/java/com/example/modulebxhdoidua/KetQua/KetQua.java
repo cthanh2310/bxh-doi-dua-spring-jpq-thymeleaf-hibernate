@@ -84,8 +84,8 @@ public class KetQua {
                 ", thoiGianVeDich=" + thoiGianVeDich +
                 ", thuHang=" + thuHang +
                 ", diem=" + diem +
-                ", doiDuaTayDua=" + doiDuaTayDua +
-                ", changDua=" + changDua +
+//                ", doiDuaTayDua=" + doiDuaTayDua +
+//                ", changDua=" + changDua +
                 '}';
     }
 }
