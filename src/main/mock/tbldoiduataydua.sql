@@ -13,3 +13,8 @@ create table tbldoiduataydua
 
 INSERT INTO bxhdoidua.tbldoiduataydua (id, thoi_diem, tbl_doi_dua_id, tbl_thanh_vien_id) VALUES (1, '2022-08-27 17:09:50', 1, 1);
 INSERT INTO bxhdoidua.tbldoiduataydua (id, thoi_diem, tbl_doi_dua_id, tbl_thanh_vien_id) VALUES (2, '2022-06-27 17:10:05', 1, 2);
+
+INSERT INTO `bxhdoidua`.`tbldoiduataydua` (`id`, `thoi_diem`, `tbl_doi_dua_id`, `tbl_thanh_vien_id`) VALUES ('3', '2022-06-27 17:10:05.000000', '2', '4');
+INSERT INTO `bxhdoidua`.`tbldoiduataydua` (`id`, `thoi_diem`, `tbl_doi_dua_id`, `tbl_thanh_vien_id`) VALUES ('4', '2022-06-27 17:10:05.000000', '2', '5');
+INSERT INTO `bxhdoidua`.`tbldoiduataydua` (`id`, `thoi_diem`, `tbl_doi_dua_id`, `tbl_thanh_vien_id`) VALUES ('5', '2022-06-27 17:10:05.000000', '3', '6');
+INSERT INTO `bxhdoidua`.`tbldoiduataydua` (`id`, `thoi_diem`, `tbl_doi_dua_id`, `tbl_thanh_vien_id`) VALUES ('6', '2022-06-27 17:10:05.000000', '3', '7');

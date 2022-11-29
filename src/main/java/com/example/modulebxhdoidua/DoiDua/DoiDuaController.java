@@ -5,6 +5,7 @@ import com.example.modulebxhdoidua.GiaiDau.GiaiDauService;
 import com.example.modulebxhdoidua.Response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +31,7 @@ public class DoiDuaController {
     }
 
     @GetMapping("")
-    public String bxhDoiDua(HttpSession session, RedirectAttributes ra) {
+    public String bxhDoiDua(HttpSession session, RedirectAttributes ra, Model model) {
         if(session.getAttribute("username") == null) {
             ra.addFlashAttribute("requireLogin", "Vui lòng đăng nhập để xem bảng xếp hạng!");
             return "redirect:/auth/login";
@@ -39,6 +40,7 @@ public class DoiDuaController {
             for(DoiDua doiDua: listDoiDua) {
                 System.out.println(doiDua);
             }
+            model.addAttribute("listDoiDua", listDoiDua);
             return "bangxephangdoidua";
         }
     }
