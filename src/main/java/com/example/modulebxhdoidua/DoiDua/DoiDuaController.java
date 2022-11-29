@@ -1,5 +1,7 @@
 package com.example.modulebxhdoidua.DoiDua;
 
+import com.example.modulebxhdoidua.DoiDuaTayDua.DoiDuaTayDua;
+import com.example.modulebxhdoidua.DoiDuaTayDua.DoiDuaTayDuaService;
 import com.example.modulebxhdoidua.GiaiDau.GiaiDau;
 import com.example.modulebxhdoidua.GiaiDau.GiaiDauService;
 import com.example.modulebxhdoidua.Response.Response;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -20,6 +23,9 @@ import java.util.Set;
 @RequestMapping("bang-xep-hang-doi-dua")
 public class DoiDuaController {
     @Autowired GiaiDauService giaiDauService;
+    @Autowired DoiDuaService doiDuaService;
+    @Autowired
+    DoiDuaTayDuaService doiDuaTayDuaService;
 
     @PostMapping("")
     public String bxhDoiDuaPost(@RequestBody ThongKeDto body, HttpSession session) {
@@ -38,8 +44,11 @@ public class DoiDuaController {
         } else {
             Set<DoiDua> listDoiDua = (Set<DoiDua>) session.getAttribute("listDoiDua");
             for(DoiDua doiDua: listDoiDua) {
+//                Optional<List<DoiDuaTayDua>> listDoiDuaTayDua = doiDuaService.getListDoiDuaTayDua(doiDua.getId());
+//                System.out.println("listDoiDuaTayDua" + listDoiDuaTayDua);
                 System.out.println(doiDua);
             }
+
             model.addAttribute("listDoiDua", listDoiDua);
             return "bangxephangdoidua";
         }
