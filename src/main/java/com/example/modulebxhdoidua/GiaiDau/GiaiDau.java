@@ -32,8 +32,6 @@ public class GiaiDau {
         return "GiaiDau{" +
                 "id=" + id +
                 ", namToChuc=" + namToChuc +
-                ", listChangDua=" + listChangDua +
-                ", listDoiDua=" + listDoiDua +
                 '}';
     }
 
@@ -62,10 +60,6 @@ public class GiaiDau {
     }
 
     public Set<DoiDua> getListDoiDua() {
-        for(DoiDua doiDua :listDoiDua) {
-            System.out.println(doiDua);
-            System.out.println("vao get list");
-        };
         return listDoiDua;
     }
 
