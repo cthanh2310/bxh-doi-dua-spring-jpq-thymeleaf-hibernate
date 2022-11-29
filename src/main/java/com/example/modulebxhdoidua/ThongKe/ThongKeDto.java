@@ -1,4 +1,4 @@
-package com.example.modulebxhdoidua.DoiDua;
+package com.example.modulebxhdoidua.ThongKe;
 
 public class ThongKeDto {
     String loaiTK;

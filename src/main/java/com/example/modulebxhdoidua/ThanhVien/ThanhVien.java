@@ -145,8 +145,9 @@ public class ThanhVien {
                 ", ghiChu='" + ghiChu + '\'' +
                 ", hoTen='" + hoTen + '\'' +
                 ", diaChi='" + diaChi + '\'' +
-                ", tayDua=" + tayDua +
-                ", banToChuc=" + banToChuc +
+                ", tayDua=" + tayDua
+                +
+//                ", banToChuc=" + banToChuc +
                 '}';
     }
 }

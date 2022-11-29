@@ -80,6 +80,15 @@ public class DoiDuaTayDua {
 //                '}';
 //    }
 
+//    @Override
+//    public String toString() {
+//        return "DoiDuaTayDua{" +
+//                "id=" + id +
+//                ", thoiDiem=" + thoiDiem +
+//                ", tayDua=" + tayDua +
+//                '}';
+//    }
+
 
     @Override
     public String toString() {

@@ -66,6 +66,17 @@ public class TayDua {
         this.listDoiDuaTayDua = listDoiDuaTayDua;
     }
 
+//    @Override
+//    public String toString() {
+//        return "TayDua{" +
+//                "id=" + id +
+//                ", quocTich='" + quocTich + '\'' +
+//                ", tieuSu='" + tieuSu + '\'' +
+//                ", thanhVien=" + thanhVien +
+//                ", listDoiDuaTayDua=" + listDoiDuaTayDua +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "TayDua{" +
@@ -73,7 +84,6 @@ public class TayDua {
                 ", quocTich='" + quocTich + '\'' +
                 ", tieuSu='" + tieuSu + '\'' +
                 ", thanhVien=" + thanhVien +
-                ", listDoiDuaTayDua=" + listDoiDuaTayDua +
                 '}';
     }
 }
