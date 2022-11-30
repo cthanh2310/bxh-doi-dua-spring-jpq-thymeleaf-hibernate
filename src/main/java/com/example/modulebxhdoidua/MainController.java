@@ -25,7 +25,6 @@ public class MainController {
             ra.addFlashAttribute("requireLogin", "Vui lòng đăng nhập để xem bảng xếp hạng!");
             return "redirect:/auth/login";
         } else {
-            System.out.println("dang nhap roi" + session.getAttribute("username"));
             return "index";
         }
     }

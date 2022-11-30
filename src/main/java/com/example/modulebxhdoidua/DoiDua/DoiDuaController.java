@@ -36,6 +36,7 @@ public class DoiDuaController {
         Optional<GiaiDau> giaiDau = giaiDauService.getByNamToChuc(namToChuc);
         Set<DoiDua> listDoiDua = giaiDau.get().getListDoiDua();
         session.setAttribute("listDoiDua", listDoiDua);
+        session.setAttribute("namToChuc", namToChuc);
         return "bangxephangdoidua";
     }
 
@@ -49,17 +50,17 @@ public class DoiDuaController {
             List<DoiDuaDto> listDoiDuaDto = new ArrayList<>();
             for(DoiDua dd: listDoiDua) {
                 Optional<DoiDua> doiDua = doiDuaService.getById(dd.getId());
+                System.out.println(doiDua);
                 Set<DoiDuaTayDua> listDDTD = doiDua.get().getListDoiDuaTayDua();
                 Integer tongDiem = 0;
                 Integer tongThoiGian = 0;
                 for(DoiDuaTayDua ddtd: listDDTD) {
+                    System.out.println(ddtd);
                     Integer sumDiem = ketQuaService.sumDiem(ddtd.getId());
                     Integer sumThoiGian = ketQuaService.sumThoiGian(ddtd.getId());
                     tongDiem += sumDiem;
                     tongThoiGian += sumThoiGian;
                 }
-                System.out.println(dd + "co diem la: " + tongDiem);
-                System.out.println(dd + "co thoi gian la: " + tongThoiGian);
                 listDoiDuaDto.add(new DoiDuaDto(dd.getId(), dd.getTen(), dd.getHang(), tongDiem, tongThoiGian));
             }
             Collections.sort(listDoiDuaDto, new Comparator<DoiDuaDto>() {
@@ -68,6 +69,8 @@ public class DoiDuaController {
                     return o2.getTongDiem() - o1.getTongDiem();
                 }
             });
+            Integer namToChuc = (Integer) session.getAttribute("namToChuc");
+            model.addAttribute("namToChuc", namToChuc);
             model.addAttribute("listDoiDuaDto", listDoiDuaDto);
             return "bangxephangdoidua";
         }
