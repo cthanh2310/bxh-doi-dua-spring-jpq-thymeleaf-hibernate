@@ -13,6 +13,8 @@ public interface KetQuaRepository extends CrudRepository<KetQua, Integer> {
         public Optional<Set<KetQua>> findByDoiDuaTayDua(Integer id);
 
         @Query(value = "SELECT sum(diem) FROM KetQua where doiDuaTayDua.id = ?1")
-        public Long sumDiem(Integer doiDuaTayDua);
+        public Integer sumDiem(Integer doiDuaTayDua);
 
+        @Query(value = "SELECT sum(thoiGianVeDich) FROM KetQua where doiDuaTayDua.id = ?1")
+        public Integer sumThoiGian(Integer doiDuaTayDua);
 }

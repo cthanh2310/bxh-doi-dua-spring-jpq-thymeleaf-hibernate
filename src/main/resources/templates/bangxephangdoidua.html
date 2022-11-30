@@ -24,16 +24,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <th:block th:each="doiDua, iter: ${listDoiDua}">
+                    <th:block th:each="doiDua, iter: ${listDoiDuaDto}">
                         <tr>
                             <td>[[${iter.index}]]</td>
                             <td>[[${doiDua.id}]]</td>
                             <td>[[${doiDua.ten}]]</td>
                             <td>[[${doiDua.hang}]]</td>
-<!--                            <td>[[${doiDua.id}]]</td>-->
-<!--                            <td>[[${doiDua.id}]]</td>-->
-                            <td></td>
-                            <td></td>
+                            <td>[[${doiDua.tongDiem}]]</td>
+                            <td>[[${doiDua.tongThoiGian}]]</td>
                             <td>
                                 <a href="/bang-xep-hang-chang-dua">Chọn</a>
                             </td>

@@ -18,8 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 @RequestMapping("bang-xep-hang-doi-dua")
@@ -46,10 +45,30 @@ public class DoiDuaController {
             ra.addFlashAttribute("requireLogin", "Vui lòng đăng nhập để xem bảng xếp hạng!");
             return "redirect:/auth/login";
         } else {
-            Optional<DoiDua> doiDua = doiDuaService.getById(1);
-            System.out.println(doiDua.get().getListDoiDuaTayDua());
-            Long sumDiem = ketQuaService.sumDiem(1);
-            System.out.println("sumDiem" + sumDiem);
+            Set<DoiDua> listDoiDua = (Set<DoiDua>) session.getAttribute("listDoiDua");
+            List<DoiDuaDto> listDoiDuaDto = new ArrayList<>();
+            for(DoiDua dd: listDoiDua) {
+                Optional<DoiDua> doiDua = doiDuaService.getById(dd.getId());
+                Set<DoiDuaTayDua> listDDTD = doiDua.get().getListDoiDuaTayDua();
+                Integer tongDiem = 0;
+                Integer tongThoiGian = 0;
+                for(DoiDuaTayDua ddtd: listDDTD) {
+                    Integer sumDiem = ketQuaService.sumDiem(ddtd.getId());
+                    Integer sumThoiGian = ketQuaService.sumThoiGian(ddtd.getId());
+                    tongDiem += sumDiem;
+                    tongThoiGian += sumThoiGian;
+                }
+                System.out.println(dd + "co diem la: " + tongDiem);
+                System.out.println(dd + "co thoi gian la: " + tongThoiGian);
+                listDoiDuaDto.add(new DoiDuaDto(dd.getId(), dd.getTen(), dd.getHang(), tongDiem, tongThoiGian));
+            }
+            Collections.sort(listDoiDuaDto, new Comparator<DoiDuaDto>() {
+                @Override
+                public int compare(DoiDuaDto o1, DoiDuaDto o2) {
+                    return o2.getTongDiem() - o1.getTongDiem();
+                }
+            });
+            model.addAttribute("listDoiDuaDto", listDoiDuaDto);
             return "bangxephangdoidua";
         }
     }

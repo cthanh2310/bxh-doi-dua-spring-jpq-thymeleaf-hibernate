@@ -15,7 +15,10 @@ public class KetQuaService {
         return ketQuaRepository.findByDoiDuaTayDua(id);
     }
 
-    public Long sumDiem(Integer doiDuaTayDua) {
+    public Integer sumDiem(Integer doiDuaTayDua) {
         return ketQuaRepository.sumDiem(doiDuaTayDua);
+    }
+    public Integer sumThoiGian(Integer doiDuaTayDua) {
+        return ketQuaRepository.sumThoiGian(doiDuaTayDua);
     }
 }
