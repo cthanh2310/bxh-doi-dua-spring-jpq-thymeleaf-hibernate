@@ -17,4 +17,10 @@ public interface KetQuaRepository extends CrudRepository<KetQua, Integer> {
 
         @Query(value = "SELECT sum(thoiGianVeDich) FROM KetQua where doiDuaTayDua.id = ?1")
         public Integer sumThoiGian(Integer doiDuaTayDua);
+
+        @Query(value = "SELECT diem FROM KetQua where doiDuaTayDua.id = ?1 and changDua.id = ?2")
+        public Integer getDiemByDoiDuaTayDuaAndChangDua(Integer doiDuaTayDua, Integer changDua);
+
+        @Query(value = "SELECT thoiGianVeDich FROM KetQua where doiDuaTayDua.id = ?1 and changDua.id = ?2")
+        public Integer getThoiGianByDoiDuaTayDuaAndChangDua(Integer doiDuaTayDua, Integer changDua);
 }

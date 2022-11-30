@@ -21,4 +21,11 @@ public class KetQuaService {
     public Integer sumThoiGian(Integer doiDuaTayDua) {
         return ketQuaRepository.sumThoiGian(doiDuaTayDua);
     }
+
+    public Integer getDiemByDoiDuaTayDuaAndChangDua(Integer doiDuaTayDua, Integer changDua) {
+        return ketQuaRepository.getDiemByDoiDuaTayDuaAndChangDua(doiDuaTayDua, changDua);
+    }
+    public Integer getThoiGianByDoiDuaTayDuaAndChangDua(Integer doiDuaTayDua, Integer changDua) {
+        return ketQuaRepository.getThoiGianByDoiDuaTayDuaAndChangDua(doiDuaTayDua, changDua);
+    }
 }

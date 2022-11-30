@@ -42,11 +42,13 @@ public class DoiDuaController {
 
     @GetMapping("")
     public String bxhDoiDua(HttpSession session, RedirectAttributes ra, Model model) {
+        System.out.println(session);
         if(session.getAttribute("username") == null) {
             ra.addFlashAttribute("requireLogin", "Vui lòng đăng nhập để xem bảng xếp hạng!");
             return "redirect:/auth/login";
         } else {
-            Set<DoiDua> listDoiDua = (Set<DoiDua>) session.getAttribute("listDoiDua");
+            Integer namToChuc = (Integer) session.getAttribute("namToChuc");
+            Set<DoiDua> listDoiDua = giaiDauService.getByNamToChuc(namToChuc).get().getListDoiDua();
             List<DoiDuaDto> listDoiDuaDto = new ArrayList<>();
             for(DoiDua dd: listDoiDua) {
                 Optional<DoiDua> doiDua = doiDuaService.getById(dd.getId());
@@ -69,7 +71,6 @@ public class DoiDuaController {
                     return o2.getTongDiem() - o1.getTongDiem();
                 }
             });
-            Integer namToChuc = (Integer) session.getAttribute("namToChuc");
             model.addAttribute("namToChuc", namToChuc);
             model.addAttribute("listDoiDuaDto", listDoiDuaDto);
             return "bangxephangdoidua";
