@@ -14,28 +14,28 @@
     <div>
         <table class="table table-bordered table-striped">
             <thead>
-            <tr>
-                <th>TT</th>
-                <th>Mã chặng</th>
-                <th>Tên chặng</th>
-                <th>Tổng điểm</th>
-                <th>Tổng thời gian(phút)</th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>TT</th>
+                    <th>Mã chặng</th>
+                    <th>Tên chặng</th>
+                    <th>Tổng điểm</th>
+                    <th>Tổng thời gian(phút)</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
-            <th:block th:each="changDua, iter: ${listChangDuaDto}">
-                <tr>
-                    <td>[[${iter.index}]]</td>
-                    <td>[[${changDua.id}]]</td>
-                    <td>[[${changDua.ten}]]</td>
-                    <td>[[${changDua.tongDiem}]]</td>
-                    <td>[[${changDua.tongThoiGian}]]</td>
-                    <td>
-                        <a th:href="@{'/bang-xep-hang-tay-dua/' + ${changDua.id}}">Chọn</a>
-                    </td>
-                </tr>
-            </th:block>
+                <th:block th:each="changDua, iter: ${listChangDuaDto}">
+                    <tr>
+                        <td>[[${iter.index}]]</td>
+                        <td>[[${changDua.id}]]</td>
+                        <td>[[${changDua.ten}]]</td>
+                        <td>[[${changDua.tongDiem}]]</td>
+                        <td>[[${changDua.tongThoiGian}]]</td>
+                        <td>
+                            <a th:href="@{'/bang-xep-hang-tay-dua/' + ${changDua.id}}">Chọn</a>
+                        </td>
+                    </tr>
+                </th:block>
             </tbody>
         </table>
         <a class="btn btn-primary" href="/bang-xep-hang-doi-dua/" role="button" style="position: absolute; left: 15px">Quay lại</a>
