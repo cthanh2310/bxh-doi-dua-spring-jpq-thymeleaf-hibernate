@@ -35,6 +35,7 @@ public class ChangDuaController {
             ra.addFlashAttribute("requireLogin", "Vui lòng đăng nhập để xem bảng xếp hạng chặng đua");
             return "redirect:/auth/login";
         } else {
+            session.setAttribute("doiDuaId", id);
             Optional<DoiDua> doiDua = doiDuaService.getById(id);
             Set<DoiDuaTayDua> listDDTD = doiDua.get().getListDoiDuaTayDua();
             Integer namToChuc = (Integer) session.getAttribute("namToChuc");
@@ -48,10 +49,6 @@ public class ChangDuaController {
                     tongDiem += ketQuaService.getDiemByDoiDuaTayDuaAndChangDua(doiDuaTayDua.getId(), changDua.getId());
                     tongThoiGian += ketQuaService.getThoiGianByDoiDuaTayDuaAndChangDua(doiDuaTayDua.getId(), changDua.getId());
                 }
-                System.out.println(changDua.getId());
-                System.out.println(changDua.getTen());
-                System.out.println(tongDiem);
-                System.out.println(tongThoiGian);
                 listChangDuaDto.add(new ChangDuaDto(changDua.getId(), changDua.getTen(), tongDiem, tongThoiGian));
             }
             Collections.sort(listChangDuaDto, new Comparator<ChangDuaDto>() {

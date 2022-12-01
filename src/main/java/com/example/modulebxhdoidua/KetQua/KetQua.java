@@ -2,6 +2,7 @@ package com.example.modulebxhdoidua.KetQua;
 
 import com.example.modulebxhdoidua.ChangDua.ChangDua;
 import com.example.modulebxhdoidua.DoiDuaTayDua.DoiDuaTayDua;
+import org.apache.commons.lang3.builder.ToStringExclude;
 
 import javax.persistence.*;
 
@@ -21,6 +22,7 @@ public class KetQua {
     @Column(name = "diem", nullable = false)
     Integer diem;
 
+    @ToStringExclude
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "tbl_doi_dua_tay_dua_id")
     DoiDuaTayDua doiDuaTayDua;

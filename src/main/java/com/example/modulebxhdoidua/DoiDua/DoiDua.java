@@ -100,7 +100,7 @@ public class DoiDua {
                 ", hang='" + hang + '\'' +
                 ", moTa='" + moTa + '\'' +
                 ", giaiDau=" + giaiDau +
-                ", listDoiDuaTayDua=" + listDoiDuaTayDua +
+//                ", listDoiDuaTayDua=" + listDoiDuaTayDua +
                 '}';
     }
 }

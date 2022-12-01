@@ -28,4 +28,8 @@ public class KetQuaService {
     public Integer getThoiGianByDoiDuaTayDuaAndChangDua(Integer doiDuaTayDua, Integer changDua) {
         return ketQuaRepository.getThoiGianByDoiDuaTayDuaAndChangDua(doiDuaTayDua, changDua);
     }
+
+    public Optional<KetQua> findByDoiDuaTayDuaAndChangDua(Integer ddtdId, Integer changDuaId) {
+        return ketQuaRepository.findByDoiDuaTayDuaAndChangDua(ddtdId, changDuaId);
+    }
 }

@@ -74,7 +74,9 @@ public class DoiDuaTayDua {
         return "DoiDuaTayDua{" +
                 "id=" + id +
                 ", thoiDiem=" + thoiDiem +
-                ", listKetQua=" + listKetQua +
+                ", doiDua=" + doiDua +
+                ", tayDua=" + tayDua +
+//                ", listKetQua=" + listKetQua +
                 '}';
     }
 }

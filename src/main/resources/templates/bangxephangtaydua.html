@@ -8,10 +8,11 @@
 <body>
   <div class="container-fluid text-center">
     <div class="mb-3">
-      <h1>BXH chặng đua</h1>
+      <h1>BXH tay đua</h1>
+      <h2>Mùa giải: [[${namToChuc}]]</h2>
     </div>
     <div>
-      <div class="table table-bordered table-striped">
+      <table class="table table-bordered table-striped">
         <thead>
           <tr>
             <th>TT</th>
@@ -22,10 +23,23 @@
             <th>thứ hạng</th>
             <th>điểm</th>
           </tr>
+
         </thead>
         <tbody>
+          <th:block th:each="tayDua, iter: ${listTayDuaDto}">
+            <tr>
+              <td>[[${iter.index}]]</td>
+              <td>[[${tayDua.id}]]</td>
+              <td>[[${tayDua.tenTayDua}]]</td>
+              <td>[[${tayDua.tenChang}]]</td>
+              <td>[[${tayDua.thoiGianVeDich}]]</td>
+              <td>[[${tayDua.thuHang}]]</td>
+              <td>[[${tayDua.diem}]]</td>
+            </tr>
+          </th:block>
         </tbody>
-      </div>
+      </table>
+      <a class="btn btn-primary" th:href="@{'/bang-xep-hang-chang-dua/' + ${changDuaId}}" role="button" style="position: absolute; left: 15px" >Quay lại</a>
     </div>
   </div>
 </body>
