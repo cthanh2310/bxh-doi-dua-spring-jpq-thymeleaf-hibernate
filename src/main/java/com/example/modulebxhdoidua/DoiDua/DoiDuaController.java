@@ -51,7 +51,7 @@ public class DoiDuaController {
             Set<DoiDua> listDoiDua = giaiDauService.getByNamToChuc(namToChuc).get().getListDoiDua();
             List<DoiDuaDto> listDoiDuaDto = new ArrayList<>();
             for(DoiDua dd: listDoiDua) {
-                Optional<DoiDua> doiDua = doiDuaService.getById(dd.getId());
+                Optional<DoiDua> doiDua = doiDuaService.getDoiDuaById(dd.getId());
                 System.out.println(doiDua);
                 Set<DoiDuaTayDua> listDDTD = doiDua.get().getListDoiDuaTayDua();
                 Integer tongDiem = 0;

@@ -38,9 +38,8 @@ public class TayDuaController {
             return "redirect:/auth/login";
         }
         Optional<ChangDua> changDua = changDuaService.getChangDuaById(id);
-//        List<KetQua> listKetQua = changDua.get().getListKetQua();
         Integer doiDuaId = (Integer) session.getAttribute("doiDuaId");
-        Optional<DoiDua> doiDua = doiDuaService.getById(doiDuaId);
+        Optional<DoiDua> doiDua = doiDuaService.getDoiDuaById(doiDuaId);
         Set<DoiDuaTayDua> listDoiDuaTayDua = doiDua.get().getListDoiDuaTayDua();
 
         List<TayDuaDto> listTayDuaDto = new ArrayList<>();

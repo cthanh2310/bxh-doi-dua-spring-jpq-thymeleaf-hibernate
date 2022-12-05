@@ -36,7 +36,7 @@ public class ChangDuaController {
             return "redirect:/auth/login";
         } else {
             session.setAttribute("doiDuaId", id);
-            Optional<DoiDua> doiDua = doiDuaService.getById(id);
+            Optional<DoiDua> doiDua = doiDuaService.getDoiDuaById(id);
             Set<DoiDuaTayDua> listDDTD = doiDua.get().getListDoiDuaTayDua();
             Integer namToChuc = (Integer) session.getAttribute("namToChuc");
             Optional<GiaiDau> giaiDau = giaiDauService.getByNamToChuc(namToChuc);
